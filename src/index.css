@@ -1,0 +1,39 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-bg: #f8f8f6;
+  --color-white: #ffffff;
+  --color-black: #0a0a0a;
+  --color-dark: #111111;
+  --color-mid: #555555;
+  --color-light-gray: #e0e0e0;
+  --color-subtle: #c8c8c8;
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-dark);
+  color: var(--color-bg);
+}

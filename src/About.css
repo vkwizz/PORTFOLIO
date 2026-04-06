@@ -1,0 +1,202 @@
+/* ═══════════════════════════════════════════════
+   ABOUT — Skills + Education
+   ═══════════════════════════════════════════════ */
+
+.about-section {
+    background: #f0f0ee;
+    padding: 8rem 5vw;
+    position: relative;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 38px 38px;
+    pointer-events: none;
+}
+
+.about-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* ── Bio strip ── */
+.about-bio-wrap {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 3rem;
+    align-items: start;
+    padding-bottom: 5rem;
+    border-bottom: 1px solid #d8d8d6;
+    margin-bottom: 5rem;
+}
+
+.about-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #999;
+    padding-top: 0.3rem;
+}
+
+.about-bio__text {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.85;
+    color: #333;
+    font-weight: 300;
+}
+
+.about-bio__text em {
+    font-style: normal;
+    font-weight: 600;
+    color: #0a0a0a;
+}
+
+/* ── Two-column grid ── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+}
+
+.about-section-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    margin-bottom: 2.2rem;
+}
+
+/* ── Skill groups ── */
+.skill-group {
+    margin-bottom: 1.8rem;
+}
+
+.skill-group__label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #aaa;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+.skill-group__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.skill-chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #0a0a0a;
+    background: #ffffff;
+    border: 1px solid #e0e0de;
+    padding: 0.35rem 0.85rem;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    cursor: default;
+}
+
+.skill-chip:hover {
+    background: #0a0a0a;
+    color: #f8f8f6;
+    border-color: #0a0a0a;
+    transform: translateY(-1px);
+}
+
+.skill-chip--soft {
+    background: transparent;
+    border-color: #ccc;
+    color: #555;
+    font-style: italic;
+}
+
+.skill-chip--soft:hover {
+    background: #0a0a0a;
+    color: #f8f8f6;
+    border-color: #0a0a0a;
+    font-style: normal;
+}
+
+/* ── Education ── */
+.edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid #d8d8d6;
+}
+
+.edu-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 1.6rem 0;
+    border-bottom: 1px solid #d8d8d6;
+    transition: padding-left 0.25s;
+}
+
+.edu-item:hover {
+    padding-left: 0.5rem;
+}
+
+.edu-item__score {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0a0a0a;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.edu-item__degree {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #0a0a0a;
+    margin-bottom: 0.2rem;
+}
+
+.edu-item__inst {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+    line-height: 1.5;
+}
+
+.edu-item__period {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbb;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .about-bio-wrap {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+}

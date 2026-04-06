@@ -1,0 +1,432 @@
+/* ═══════════════════════════════════════════════
+   PROJECTS SECTION
+   ═══════════════════════════════════════════════ */
+
+.projects-section {
+    background: #0a0a0a;
+    padding: 8rem 5vw;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle dot grid on dark bg */
+.projects-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 38px 38px;
+    pointer-events: none;
+}
+
+.projects-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.projects-header {
+    margin-bottom: 5rem;
+}
+
+.projects-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #666;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.projects-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    font-weight: 900;
+    color: #f8f8f6;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    line-height: 0.95;
+}
+
+.projects-rule {
+    width: 44px;
+    height: 2px;
+    background: #f8f8f6;
+    margin-top: 1.6rem;
+}
+
+/* ── Grid ── */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+}
+
+/* ── Card ── */
+.project-card {
+    position: relative;
+    background: #111111;
+    padding: 2.8rem;
+    overflow: hidden;
+    cursor: default;
+    transition: background 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: calc(var(--i) * 0.12s + 0.2s);
+}
+
+.project-card:hover {
+    background: #181818;
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+}
+
+/* Large ghost number */
+.project-card__number {
+    position: absolute;
+    bottom: -1.5rem;
+    right: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.project-card__top {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.4rem;
+}
+
+.project-card__tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: #f8f8f6;
+    padding: 0.25rem 0.65rem;
+    border-radius: 2px;
+}
+
+.project-card__period {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    color: #555;
+    letter-spacing: 0.04em;
+}
+
+.project-card__name {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: #f8f8f6;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+}
+
+.project-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.75;
+    color: #888;
+    margin-bottom: 1.6rem;
+}
+
+.project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.4rem;
+}
+
+.project-card__chip {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: #aaa;
+    border: 1px solid #2a2a2a;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    transition: border-color 0.25s, color 0.25s;
+}
+
+.project-card:hover .project-card__chip {
+    border-color: #444;
+    color: #ccc;
+}
+
+.project-card__actions {
+    display: flex;
+    gap: 1.2rem;
+    align-items: center;
+}
+
+.project-card__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #f8f8f6;
+    text-decoration: none;
+    border-bottom: 1px solid #444;
+    padding-bottom: 2px;
+    transition: border-color 0.25s, opacity 0.25s;
+    display: inline-block;
+}
+
+.project-card__link--gh {
+    color: #888;
+    border-color: #2a2a2a;
+}
+
+.project-card__link:hover {
+    border-color: #f8f8f6;
+    opacity: 0.7;
+}
+
+/* ── Preview button (opens modal) ── */
+.project-card__preview-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #0a0a0a;
+    background: #f8f8f6;
+    border: none;
+    padding: 0.62rem 1.25rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.project-card__preview-btn:hover {
+    background: #e8e8e6;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.project-card__preview-btn:active {
+    transform: translateY(0);
+}
+
+.project-card__preview-icon {
+    display: flex;
+    align-items: center;
+    opacity: 0.7;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 2rem;
+    }
+}
+
+/* ── GitHub Repos Strip ── */
+.gh-strip-header {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    padding-top: 3rem;
+    border-top: 1px solid #1e1e1e;
+}
+
+.gh-strip-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #555;
+}
+
+.gh-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #1a1a1a;
+}
+
+/* wrap gives the preview button a positioning context */
+.gh-card-wrap {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+    position: relative;
+}
+
+.gh-card {
+    background: transparent;
+    padding: 1.8rem 1.8rem 1rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    transition: background 0.25s, transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}
+
+.gh-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0);
+    transition: background 0.25s;
+    pointer-events: none;
+}
+
+.gh-card:hover {
+    background: #161616;
+    transform: translateY(-4px);
+}
+
+.gh-card__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.gh-card__name {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #f8f8f6;
+    transition: color 0.2s;
+}
+
+.gh-card:hover .gh-card__name {
+    color: #ffffff;
+}
+
+.gh-card__lang {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.62rem;
+    color: #555;
+    letter-spacing: 0.06em;
+    flex-shrink: 0;
+}
+
+.gh-card__lang-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.gh-card__desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.7;
+    color: #666;
+    flex: 1;
+}
+
+.gh-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.gh-card__arrow {
+    font-size: 0.8rem;
+    color: #333;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.gh-card:hover .gh-card__arrow {
+    color: #f8f8f6;
+    transform: translateX(4px);
+}
+
+.gh-card__live {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555;
+    border: 1px solid #2a2a2a;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+}
+
+/* ── GitHub CTA ── */
+.projects-github-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.projects-github-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #555;
+    text-decoration: none;
+    border-bottom: 1px solid #333;
+    padding-bottom: 2px;
+    transition: color 0.25s, border-color 0.25s;
+}
+
+.projects-github-link:hover {
+    color: #f8f8f6;
+    border-color: #f8f8f6;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .gh-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card {
+        padding: 2rem;
+    }
+
+    .gh-grid {
+        grid-template-columns: 1fr;
+    }
+}
